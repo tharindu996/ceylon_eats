@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -21,9 +20,7 @@ class UserController extends Controller
         }
 
         if ($request->has('role') && $request->role != 'all') {
-            $query->whereHas('role', function($q) use ($request) {
-                $q->where('slug', $request->role);
-            });
+            $query->where('role', $request->role);
         }
 
         if ($request->has('search')) {
@@ -34,9 +31,8 @@ class UserController extends Controller
         }
 
         $users = $query->paginate(20);
-        $roles = Role::all();
 
-        return view('admin.users.index', compact('users', 'roles'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -44,8 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create');
     }
 
     /**
@@ -58,18 +53,27 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'mobile' => 'nullable|string|max:20|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role_id' => 'required|exists:roles,id',
+            'role' => 'required|string',
             'status' => 'required|in:active,suspended',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'password' => \Illuminate\Support\Facades\Hash::make($request->password),
-            'role_id' => $request->role_id,
+            'role' => $request->role,
             'status' => $request->status,
         ]);
+
+        if ($user->role === User::ROLE_VENDOR) {
+            $user->vendor()->create([
+                'business_name' => $user->name . "'s Shop",
+                'business_address' => '',
+                'commission_rate' => 0,
+                'verification_status' => 'pending',
+            ]);
+        }
 
         return redirect()->route('admin.users.index')->with('success', 'User created successfully.');
     }
@@ -88,8 +92,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::all();
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -104,7 +107,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'mobile' => 'nullable|string|max:20|unique:users,mobile,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
-            'role_id' => 'required|exists:roles,id',
+            'role' => 'required|string',
             'status' => 'required|in:active,suspended,guest',
         ]);
 
@@ -112,7 +115,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'role_id' => $request->role_id,
+            'role' => $request->role,
             'status' => $request->status,
         ];
 

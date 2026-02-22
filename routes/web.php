@@ -21,6 +21,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     Route::post('users/{user}/toggle-status', [\App\Http\Controllers\Admin\UserController::class, 'toggleStatus'])->name('users.toggle-status');
+
+    // Vendor Management
+    Route::resource('vendors', \App\Http\Controllers\Admin\VendorController::class);
+    Route::post('vendors/{vendor}/toggle-verification', [\App\Http\Controllers\Admin\VendorController::class, 'toggleVerification'])->name('vendors.toggle-verification');
+    Route::post('vendors/{vendor}/toggle-status', [\App\Http\Controllers\Admin\VendorController::class, 'toggleStatus'])->name('vendors.toggle-status');
 });
 
 require __DIR__.'/auth.php';

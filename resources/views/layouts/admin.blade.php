@@ -67,14 +67,14 @@
                         <a href="#">Order list</a>
                     </div>
                 </li>
-                <li class="menu-item has-submenu">
+                <li class="menu-item has-submenu {{ request()->routeIs('admin.vendors.*') ? 'active' : '' }}">
                     <a class="menu-link" href="#">
                         <i class="icon material-icons md-store"></i>
-                        <span class="text">Sellers</span>
+                        <span class="text">Vendors</span>
                     </a>
                     <div class="submenu">
-                        <a href="#">Sellers cards</a>
-                        <a href="#">Sellers list</a>
+                        <a href="{{ route('admin.vendors.index') }}"
+                            class="{{ request()->routeIs('admin.vendors.index') ? 'active' : '' }}">Vendor List</a>
                     </div>
                 </li>
             </ul>

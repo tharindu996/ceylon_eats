@@ -50,17 +50,27 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-4">
-                                <label for="role_id" class="form-label">Role</label>
-                                <select name="role_id" id="role_id"
-                                    class="form-select @error('role_id') is-invalid @enderror" required>
+                                <label for="role" class="form-label">Role</label>
+                                <select name="role" id="role"
+                                    class="form-select @error('role') is-invalid @enderror" required>
                                     <option value="">Select Role</option>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}"
-                                            {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>
-                                            {{ $role->name }}</option>
-                                    @endforeach
+                                    <option value="owner" {{ old('role', $user->role) == 'owner' ? 'selected' : '' }}>Owner
+                                    </option>
+                                    <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>
+                                        Admin</option>
+                                    <option value="vendor" {{ old('role', $user->role) == 'vendor' ? 'selected' : '' }}>
+                                        Vendor</option>
+                                    <option value="vendor-manager"
+                                        {{ old('role', $user->role) == 'vendor-manager' ? 'selected' : '' }}>Vendor Manager
+                                    </option>
+                                    <option value="finance-manager"
+                                        {{ old('role', $user->role) == 'finance-manager' ? 'selected' : '' }}>Finance
+                                        Manager</option>
+                                    <option value="support-executive"
+                                        {{ old('role', $user->role) == 'support-executive' ? 'selected' : '' }}>Support
+                                        Executive</option>
                                 </select>
-                                @error('role_id')
+                                @error('role')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

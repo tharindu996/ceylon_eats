@@ -29,10 +29,15 @@
                 <div class="col-lg-2 col-md-3 col-6">
                     <select name="role" class="form-select" onchange="this.form.submit()">
                         <option value="all">All Roles</option>
-                        @foreach ($roles as $role)
-                            <option value="{{ $role->slug }}" {{ request('role') == $role->slug ? 'selected' : '' }}>
-                                {{ $role->name }}</option>
-                        @endforeach
+                        <option value="owner" {{ request('role') == 'owner' ? 'selected' : '' }}>Owner</option>
+                        <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="vendor" {{ request('role') == 'vendor' ? 'selected' : '' }}>Vendor</option>
+                        <option value="vendor-manager" {{ request('role') == 'vendor-manager' ? 'selected' : '' }}>Vendor
+                            Manager</option>
+                        <option value="finance-manager" {{ request('role') == 'finance-manager' ? 'selected' : '' }}>
+                            Finance Manager</option>
+                        <option value="support-executive" {{ request('role') == 'support-executive' ? 'selected' : '' }}>
+                            Support Executive</option>
                     </select>
                 </div>
             </form>
@@ -67,11 +72,8 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    @if ($user->role)
-                                        <span class="badge rounded-pill bg-light text-dark">{{ $user->role->name }}</span>
-                                    @else
-                                        <span class="text-muted">No Role</span>
-                                    @endif
+                                    <span
+                                        class="badge rounded-pill bg-light text-dark">{{ ucfirst(str_replace('-', ' ', $user->role)) }}</span>
                                 </td>
                                 <td>
                                     @php
