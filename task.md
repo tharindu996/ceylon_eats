@@ -1,0 +1,49 @@
+# Task: CeylonEat Admin Panel Development
+
+- [x] PHASE 1: Core Security & Access [/]
+    - [x] Set up MySQL Database configuration [/]
+    - [x] Install Laravel Breeze and customize Auth [/]
+    - [x] Integrate Admin Template from `_admin_temp` [/]
+        - [x] Move assets to `public/admin` [/]
+        - [x] Create `layouts/admin.blade.php` from template [/]
+    - [x] Set up Roles table and relationships [/]
+    - [x] Implement Multi-role system (Owner, Admin, Vendor Manager, etc.) [/]
+    - [x] Enhance User model with `mobile` field [/]
+    - [x] Configure Laravel Gates for RBAC [/]
+    - [x] Integrate Google reCAPTCHA v3 (Manual Integration) [/]
+    - [x] Implement Audit Logs system [/]
+- [/] PHASE 2: User Management [/]
+    - [x] User CRUD (Create, Edit, Suspend) [/]
+        - [x] Implement User Listing with filters [/]
+        - [x] Add status column and suspension logic [/]
+        - [x] Implement Create/Edit forms and logic [/]
+    - [ ] Booking history view
+    - [ ] Email capture enforcement
+    - [ ] Guest user conversion
+- [ ] PHASE 3: Vendor Management
+    - [ ] Vendor onboarding approval
+    - [ ] Vendor verification
+    - [ ] Vendor status control
+    - [ ] Vendor commission configuration
+- [ ] PHASE 4: Listing Moderation
+    - [ ] Listing approval workflow
+    - [ ] Dining category management
+    - [ ] Policy validation
+    - [ ] Promotion moderation
+- [ ] PHASE 5: Booking Visibility
+    - [ ] Booking search and filters
+    - [ ] Financial breakdown visibility
+    - [ ] Customer, vendor, and payment data view
+- [ ] PHASE 6: Commission Management
+    - [ ] Dynamic commission rules
+    - [ ] Cap configuration (LKR 999)
+    - [ ] Audit logs for commission changes
+- [ ] PHASE 7: Payout Control
+    - [ ] Manual payout release
+    - [ ] Owner-level 2FA verification
+    - [ ] Approval workflow
+    - [ ] Payout logs
+- [ ] PHASE 8: Compliance & Legal
+    - [ ] Policy tracking
+    - [ ] Timestamp and IP logging
+    - [ ] GDPR readiness
