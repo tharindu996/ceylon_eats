@@ -26,6 +26,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('vendors', \App\Http\Controllers\Admin\VendorController::class);
     Route::post('vendors/{vendor}/toggle-verification', [\App\Http\Controllers\Admin\VendorController::class, 'toggleVerification'])->name('vendors.toggle-verification');
     Route::post('vendors/{vendor}/toggle-status', [\App\Http\Controllers\Admin\VendorController::class, 'toggleStatus'])->name('vendors.toggle-status');
+
+    // Commission Management
+    Route::get('commissions', [\App\Http\Controllers\Admin\CommissionController::class, 'index'])->name('commissions.index');
+    Route::post('commissions', [\App\Http\Controllers\Admin\CommissionController::class, 'update'])->name('commissions.update');
 });
 
 require __DIR__.'/auth.php';

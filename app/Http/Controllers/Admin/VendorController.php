@@ -79,6 +79,7 @@ class VendorController extends Controller
             'business_name' => 'required|string|max:255',
             'business_address' => 'nullable|string',
             'commission_rate' => 'required|numeric|min:0|max:100',
+            'commission_cap' => 'nullable|numeric|min:0',
             'verification_status' => 'required|in:pending,verified,rejected',
         ]);
 
@@ -86,6 +87,7 @@ class VendorController extends Controller
             'business_name',
             'business_address',
             'commission_rate',
+            'commission_cap',
             'verification_status',
         ]));
 

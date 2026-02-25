@@ -31,10 +31,10 @@
     - [ ] Booking search and filters
     - [ ] Financial breakdown visibility
     - [ ] Customer, vendor, and payment data view
-- [ ] PHASE 6: Commission Management
-    - [ ] Dynamic commission rules
-    - [ ] Cap configuration (LKR 999)
-    - [ ] Audit logs for commission changes
+- [x] PHASE 6: Commission Management
+    - [x] Dynamic commission rules
+    - [x] Cap configuration (LKR 999)
+    - [x] Audit logs for commission changes
 - [ ] PHASE 7: Payout Control
     - [ ] Manual payout release
     - [ ] Owner-level 2FA verification

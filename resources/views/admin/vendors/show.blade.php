@@ -100,16 +100,17 @@
                         <input type="text" class="form-control" id="business_name" name="business_name"
                             value="{{ $vendor->business_name }}">
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="commission_rate" class="form-label">Commission Rate (%)</label>
                         <input type="number" step="0.01" class="form-control" id="commission_rate"
                             name="commission_rate" value="{{ $vendor->commission_rate }}">
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="business_address" class="form-label">Address</label>
-                        <textarea class="form-control" id="business_address" name="business_address" rows="3">{{ $vendor->business_address }}</textarea>
+                    <div class="col-md-4 mb-3">
+                        <label for="commission_cap" class="form-label">Commission Cap (LKR)</label>
+                        <input type="number" step="0.01" class="form-control" id="commission_cap" name="commission_cap"
+                            value="{{ $vendor->commission_cap }}" placeholder="Default">
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="verification_status" class="form-label">Manual Verification Status Override</label>
                         <select class="form-select" id="verification_status" name="verification_status">
                             <option value="pending" {{ $vendor->verification_status == 'pending' ? 'selected' : '' }}>
@@ -120,6 +121,10 @@
                             <option value="rejected" {{ $vendor->verification_status == 'rejected' ? 'selected' : '' }}>
                                 Rejected</option>
                         </select>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="business_address" class="form-label">Address</label>
+                        <textarea class="form-control" id="business_address" name="business_address" rows="3">{{ $vendor->business_address }}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Update Vendor Info</button>

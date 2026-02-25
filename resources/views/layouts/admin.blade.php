@@ -77,6 +77,12 @@
                             class="{{ request()->routeIs('admin.vendors.index') ? 'active' : '' }}">Vendor List</a>
                     </div>
                 </li>
+                <li class="menu-item {{ request()->routeIs('admin.commissions.*') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('admin.commissions.index') }}">
+                        <i class="icon material-icons md-monetization_on"></i>
+                        <span class="text">Commissions</span>
+                    </a>
+                </li>
             </ul>
             <hr />
             <ul class="menu-aside">

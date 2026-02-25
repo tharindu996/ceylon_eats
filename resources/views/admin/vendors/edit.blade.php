@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <label for="commission_rate" class="form-label">Commission Rate (%)</label>
                                 <div class="input-group">
                                     <input type="number" step="0.01" name="commission_rate" id="commission_rate"
@@ -53,7 +53,20 @@
                                     <div class="text-danger small mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-4 mb-4">
+                                <label for="commission_cap" class="form-label">Commission Cap (LKR)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">LKR</span>
+                                    <input type="number" step="0.01" name="commission_cap" id="commission_cap"
+                                        value="{{ old('commission_cap', $vendor->commission_cap) }}"
+                                        class="form-control @error('commission_cap') is-invalid @enderror" />
+                                </div>
+                                <div class="form-text small">Leave blank to use global default.</div>
+                                @error('commission_cap')
+                                    <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-4 mb-4">
                                 <label for="verification_status" class="form-label">Verification Status</label>
                                 <select name="verification_status" id="verification_status"
                                     class="form-select @error('verification_status') is-invalid @enderror" required>
