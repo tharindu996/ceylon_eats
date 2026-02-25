@@ -86,8 +86,33 @@
                                 </td>
                                 <td>{{ $vendor->created_at->format('d.m.Y') }}</td>
                                 <td class="text-end">
-                                    <a href="{{ route('admin.vendors.show', $vendor) }}"
-                                        class="btn btn-sm btn-brand rounded font-sm mt-15">View details</a>
+                                    <div class="dropdown">
+                                        <a href="#" data-bs-toggle="dropdown"
+                                            class="btn btn-light rounded btn-sm font-sm"> <i
+                                                class="material-icons md-more_horiz"></i> </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ route('admin.vendors.show', $vendor) }}">View
+                                                info</a>
+                                            <a class="dropdown-item" href="{{ route('admin.vendors.edit', $vendor) }}">Edit
+                                                info</a>
+                                            <form action="{{ route('admin.vendors.toggle-status', $vendor) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button type="submit"
+                                                    class="dropdown-item {{ $vendor->is_active ? 'text-danger' : 'text-success' }}">
+                                                    {{ $vendor->is_active ? 'Deactivate' : 'Activate' }}
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('admin.vendors.toggle-verification', $vendor) }}"
+                                                method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item">
+                                                    {{ $vendor->verification_status == 'verified' ? 'Reject' : 'Verify' }}
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- dropdown //end -->
                                 </td>
                             </tr>
                         @empty

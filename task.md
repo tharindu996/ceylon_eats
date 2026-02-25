@@ -1,30 +1,27 @@
 # Task: CeylonEat Admin Panel Development
 
-- [x] PHASE 1: Core Security & Access [/]
-    - [x] Set up MySQL Database configuration [/]
-    - [x] Install Laravel Breeze and customize Auth [/]
-    - [x] Integrate Admin Template from `_admin_temp` [/]
-        - [x] Move assets to `public/admin` [/]
-        - [x] Create `layouts/admin.blade.php` from template [/]
-    - [x] Set up Roles table and relationships [/]
-    - [x] Implement Multi-role system (Owner, Admin, Vendor Manager, etc.) [/]
-    - [x] Enhance User model with `mobile` field [/]
-    - [x] Configure Laravel Gates for RBAC [/]
-    - [x] Integrate Google reCAPTCHA v3 (Manual Integration) [/]
-    - [x] Implement Audit Logs system [/]
-- [/] PHASE 2: User Management [/]
-    - [x] User CRUD (Create, Edit, Suspend) [/]
-        - [x] Implement User Listing with filters [/]
-        - [x] Add status column and suspension logic [/]
-        - [x] Implement Create/Edit forms and logic [/]
+- [x] PHASE 1: Core Security & Access
+    - [x] Set up MySQL Database configuration
+    - [x] Install Laravel Breeze and customize Auth
+    - [x] Integrate Admin Template from `_admin_temp`
+        - [x] Move assets to `public/admin`
+        - [x] Create `layouts/admin.blade.php` from template
+    - [x] Set up Roles table and relationships
+    - [x] Implement Multi-role system (Owner, Admin, Vendor Manager, etc.)
+    - [x] Enhance User model with `mobile` field
+    - [x] Configure Laravel Gates for RBAC
+    - [x] Integrate Google reCAPTCHA v3 (Manual Integration)
+    - [x] Implement Audit Logs system
+- [x] PHASE 2: User Management
+    - [x] User CRUD (Create, Edit, Suspend)
     - [ ] Booking history view
     - [ ] Email capture enforcement
     - [ ] Guest user conversion
-- [ ] PHASE 3: Vendor Management
-    - [ ] Vendor onboarding approval
-    - [ ] Vendor verification
-    - [ ] Vendor status control
-    - [ ] Vendor commission configuration
+- [x] PHASE 3: Vendor Management
+    - [x] Vendor onboarding approval
+    - [x] Vendor verification
+    - [x] Vendor status control
+    - [x] Vendor commission configuration
 - [ ] PHASE 4: Listing Moderation
     - [ ] Listing approval workflow
     - [ ] Dining category management
