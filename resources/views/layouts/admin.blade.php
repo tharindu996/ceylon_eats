@@ -16,6 +16,8 @@
     <script src="{{ asset('admin_assets/js/vendors/color-modes.js') }}"></script>
     <link href="{{ asset('admin_assets/css/main.css?v=6.0') }}" rel="stylesheet" type="text/css" />
 
+    <!-- Application CSS & JS (Removed Vite to prevent Tailwind preflight from breaking Bootstrap) -->
+
     @stack('styles')
 </head>
 
