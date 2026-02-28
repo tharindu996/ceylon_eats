@@ -22,11 +22,11 @@
     - [x] Vendor verification
     - [x] Vendor status control
     - [x] Vendor commission configuration
-- [ ] PHASE 4: Listing Moderation
-    - [ ] Listing approval workflow
-    - [ ] Dining category management
-    - [ ] Policy validation
-    - [ ] Promotion moderation
+- [x] PHASE 4: Listing Moderation
+    - [x] Listing approval workflow
+    - [x] Dining category management
+    - [x] Policy validation
+    - [x] Promotion moderation
 - [x] PHASE 5: Booking Visibility
     - [x] Booking search and filters
     - [x] Financial breakdown visibility

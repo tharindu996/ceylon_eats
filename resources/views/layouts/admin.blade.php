@@ -58,6 +58,18 @@
                         <a href="#">Categories</a>
                     </div>
                 </li>
+                <li class="menu-item has-submenu {{ request()->routeIs('admin.categories.*') || request()->routeIs('admin.listings.*') || request()->routeIs('admin.promotions.*') || request()->routeIs('admin.policies.*') ? 'active' : '' }}">
+                    <a class="menu-link" href="#">
+                        <i class="icon material-icons md-gavel"></i>
+                        <span class="text">Moderation</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{{ route('admin.categories.index') }}" class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">Categories</a>
+                        <a href="{{ route('admin.listings.index') }}" class="{{ request()->routeIs('admin.listings.*') ? 'active' : '' }}">Listings</a>
+                        <a href="{{ route('admin.promotions.index') }}" class="{{ request()->routeIs('admin.promotions.*') ? 'active' : '' }}">Promotions</a>
+                        <a href="{{ route('admin.policies.index') }}" class="{{ request()->routeIs('admin.policies.*') ? 'active' : '' }}">Policies</a>
+                    </div>
+                </li>
                 <li class="menu-item {{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">
                     <a class="menu-link" href="{{ route('admin.bookings.index') }}">
                         <i class="icon material-icons md-event_note"></i>

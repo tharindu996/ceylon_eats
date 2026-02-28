@@ -33,6 +33,18 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // Bookings
     Route::resource('bookings', \App\Http\Controllers\Admin\BookingController::class)->only(['index', 'show']);
+
+    // Moderation (Phase 4)
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('policies', \App\Http\Controllers\Admin\PolicyController::class);
+
+    Route::resource('listings', \App\Http\Controllers\Admin\ListingController::class)->only(['index', 'show']);
+    Route::post('listings/{listing}/approve', [\App\Http\Controllers\Admin\ListingController::class, 'approve'])->name('listings.approve');
+    Route::post('listings/{listing}/reject', [\App\Http\Controllers\Admin\ListingController::class, 'reject'])->name('listings.reject');
+
+    Route::resource('promotions', \App\Http\Controllers\Admin\PromotionController::class)->only(['index']);
+    Route::post('promotions/{promotion}/approve', [\App\Http\Controllers\Admin\PromotionController::class, 'approve'])->name('promotions.approve');
+    Route::post('promotions/{promotion}/reject', [\App\Http\Controllers\Admin\PromotionController::class, 'reject'])->name('promotions.reject');
 });
 
 require __DIR__.'/auth.php';
