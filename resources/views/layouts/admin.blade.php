@@ -58,14 +58,11 @@
                         <a href="#">Categories</a>
                     </div>
                 </li>
-                <li class="menu-item has-submenu">
-                    <a class="menu-link" href="#">
-                        <i class="icon material-icons md-shopping_cart"></i>
-                        <span class="text">Orders</span>
+                <li class="menu-item {{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('admin.bookings.index') }}">
+                        <i class="icon material-icons md-event_note"></i>
+                        <span class="text">Bookings</span>
                     </a>
-                    <div class="submenu">
-                        <a href="#">Order list</a>
-                    </div>
                 </li>
                 <li class="menu-item has-submenu {{ request()->routeIs('admin.vendors.*') ? 'active' : '' }}">
                     <a class="menu-link" href="#">

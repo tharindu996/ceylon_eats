@@ -30,6 +30,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // Commission Management
     Route::get('commissions', [\App\Http\Controllers\Admin\CommissionController::class, 'index'])->name('commissions.index');
     Route::post('commissions', [\App\Http\Controllers\Admin\CommissionController::class, 'update'])->name('commissions.update');
+
+    // Bookings
+    Route::resource('bookings', \App\Http\Controllers\Admin\BookingController::class)->only(['index', 'show']);
 });
 
 require __DIR__.'/auth.php';

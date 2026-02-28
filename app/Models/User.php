@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasOne(Vendor::class);
     }
 
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'customer_id');
+    }
+
     public function isOwner()
     {
         return $this->role === self::ROLE_OWNER;

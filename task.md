@@ -27,10 +27,10 @@
     - [ ] Dining category management
     - [ ] Policy validation
     - [ ] Promotion moderation
-- [ ] PHASE 5: Booking Visibility
-    - [ ] Booking search and filters
-    - [ ] Financial breakdown visibility
-    - [ ] Customer, vendor, and payment data view
+- [x] PHASE 5: Booking Visibility
+    - [x] Booking search and filters
+    - [x] Financial breakdown visibility
+    - [x] Customer, vendor, and payment data view
 - [x] PHASE 6: Commission Management
     - [x] Dynamic commission rules
     - [x] Cap configuration (LKR 999)
