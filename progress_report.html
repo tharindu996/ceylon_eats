@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress Report - CeylonEat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF4B2B;
+            --primary-dark: #FF416C;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --pending: #f59e0b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        }
+
+        header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .report-meta {
+            display: flex;
+            gap: 30px;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #fff, #f1f5f9);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .summary-box h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            margin: 40px 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .task-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .task-item {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .task-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-done { background: #d1fae5; color: #065f46; }
+        .badge-pending { background: #fef3c7; color: #92400e; }
+
+        .task-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .task-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; padding: 0; }
+            .task-item:hover { transform: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Ceylon<span>Eat</span></div>
+            <h1>Project Progress Report</h1>
+            <div class="report-meta">
+                <span>Phase: Finalizing Core Features</span>
+                <span>Date: March 13, 2026</span>
+            </div>
+        </header>
+
+        <div class="summary-box">
+            <h2>Executive Summary</h2>
+            <p>We have successfully established the secure foundation of the CeylonEat platform. Most core management modules, including partner onboarding, menu moderation, and financial visibility, are now fully operational. We are now moving into the final phases focused on automated payouts and compliance.</p>
+        </div>
+
+        <h2 class="section-title">Completed Milestones</h2>
+        <div class="task-grid">
+            <div class="task-item">
+                <span class="status-badge badge-done">Completed</span>
+                <div class="task-content">
+                    <h3>Secure Platform Foundation</h3>
+                    <p>Implemented enterprise-grade security, login protection, and a multi-level access system (Admin, Manager, Vendor).</p>
+                </div>
+            </div>
+            <div class="task-item">
+                <span class="status-badge badge-done">Completed</span>
+                <div class="task-content">
+                    <h3>Partner Management System</h3>
+                    <p>Created a comprehensive dashboard to onboard, verify, and manage restaurant partners and vendors.</p>
+                </div>
+            </div>
+            <div class="task-item">
+                <span class="status-badge badge-done">Completed</span>
+                <div class="task-content">
+                    <h3>Content & Menu Moderation</h3>
+                    <p>Built tools for the team to review and approve listings, dining categories, and partner promotions.</p>
+                </div>
+            </div>
+            <div class="task-item">
+                <span class="status-badge badge-done">Completed</span>
+                <div class="task-content">
+                    <h3>Real-time Booking Visibility</h3>
+                    <p>Enabled full transparency into all bookings with detailed financial breakdowns and customer data.</p>
+                </div>
+            </div>
+            <div class="task-item">
+                <span class="status-badge badge-done">Completed</span>
+                <div class="task-content">
+                    <h3>Smart Commission Rules</h3>
+                    <p>Developed a dynamic system to calculate and apply platform fees automatically based on custom business rules.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Work in Progress & Next Steps</h2>
+        <div class="task-grid">
+            <div class="task-item">
+                <span class="status-badge badge-pending">Upcoming</span>
+                <div class="task-content">
+                    <h3>Automated Payout Control</h3>
+                    <p>Implementing secure, two-factor verified payment release workflows for restaurant partners.</p>
+                </div>
+            </div>
+            <div class="task-item">
+                <span class="status-badge badge-pending">Upcoming</span>
+                <div class="task-content">
+                    <h3>Compliance & Data Protection</h3>
+                    <p>Finalizing policy tracking and GDPR-ready data logging to ensure full legal compliance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 CeylonEat Development Team. Prepared for Client Review.</p>
+        </div>
+    </div>
+</body>
+</html>
